@@ -117,14 +117,20 @@ budgetButton.addEventListener('click', function(e) {
 
 totalResultButton.addEventListener('click', function() {
     let totalPrice = 0;
+    let totalDiff = 0; 
+
     for (let i = 0; i < counterItems; i++) {
         const priceEl = document.getElementById(`price-${i}`);
         if (priceEl) {
             totalPrice += Number(priceEl.textContent.replace('€', ''));
         }
     }
+    for (let key in all_results) {
+        totalDiff += all_results[key];
+    }
+    totalDiff = Math.round(totalDiff * 100) / 100; 
 
-    result.innerHTML = `Total Price: €${totalPrice}`;
+    result.innerHTML = `Total Price: €${totalPrice} with a difference of the original price of €${totalDiff}`;
 
     if (budgetOG && totalPrice <= budgetOG) {
         result.style.color = 'green';
@@ -132,3 +138,4 @@ totalResultButton.addEventListener('click', function() {
         result.style.color = 'red';
     }
 });
+

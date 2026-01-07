@@ -21,7 +21,11 @@ addItemButton.addEventListener('click', function(e) {
     e.preventDefault()
 
     
-    if (productInput.value !== '' && priceInput.value !== '') {
+    if (productInput.value !== '') {
+
+        if (priceInput.value == 0) {
+            priceInput.value = 0
+        }
         
         budgetDiv.style.display = 'none'
         

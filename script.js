@@ -130,7 +130,7 @@ totalResultButton.addEventListener('click', function() {
     }
     totalDiff = Math.round(totalDiff * 100) / 100; 
 
-    result.innerHTML = `Total Price: €${Round(totalPrice * 100) / 100} with a difference of the original price of €${Round(totalDiff* 100) / 100}`;
+    result.innerHTML = `Total Price: €${Math.Round(totalPrice * 100) / 100} with a difference of the original price of €${Math.Round(totalDiff* 100) / 100}`;
 
     if (budgetOG && totalPrice <= budgetOG) {
         result.style.color = 'green';

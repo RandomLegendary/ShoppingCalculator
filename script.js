@@ -120,7 +120,7 @@ totalResultButton.addEventListener('click', function() {
     let totalDiff = 0; 
 
     for (let i = 0; i < counterItems; i++) {
-        const priceEl = document.getElementById(`price-${i}`);
+        const priceEl = document.getElementById(`result-${i}`);
         if (priceEl) {
             totalPrice += Number(priceEl.textContent.replace('€', ''));
         }
@@ -130,7 +130,7 @@ totalResultButton.addEventListener('click', function() {
     }
     totalDiff = Math.round(totalDiff * 100) / 100; 
 
-    result.innerHTML = `Total Price: €${Math.round(totalPrice * 100) / 100} with a difference of the original price of €${Math.round(totalDiff* 100) / 100}`;
+    result.innerHTML = `Total Price: €${Math.round(totalPrice * 100) / 100} with a difference of €${Math.round(totalDiff* 100) / 100}`;
 
     if (budgetOG && totalPrice <= budgetOG) {
         result.style.color = 'green';

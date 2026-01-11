@@ -69,10 +69,12 @@ function createItem(id, product, price, realPrice = '', diff = null) {
 
     checkButton.addEventListener('click', (e) => {
         e.preventDefault();
-        const d =
-            Math.round((Number(input.value) - Number(price)) * 100) / 100;
+        // Use original price if input is empty so clearing the field makes diff 0
+        const finalPrice = input.value !== '' ? Number(input.value) : Number(price);
+        const d = Math.round((finalPrice - Number(price)) * 100) / 100;
         itemResult.textContent = d >= 0 ? `+€${d}` : `€${d}`;
-        itemResult.style.color = d <= 0 ? 'green' : 'red';
+        // show neutral color for 0, green if cheaper, red if more expensive
+        itemResult.style.color = d < 0 ? 'green' : (d > 0 ? 'red' : 'inherit');
         all_results[id] = d;
         saveToStorage();
     });

@@ -87,11 +87,13 @@ button:hover {
 }
 
 /* Remove Button Styling */
-#items button {
+#items button,
+#reset-button {
     background-color: #e74c3c;
 }
 
-#items button:hover {
+#items button:hover,
+#reset-button:hover {
     background-color: #c0392b;
 }
 

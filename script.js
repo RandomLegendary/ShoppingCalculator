@@ -224,3 +224,9 @@ function loadFromStorage() {
 }
 
 window.addEventListener('load', loadFromStorage);
+
+
+const resetButton = document.getElementById('reset-button').addEventListener('click', function() {
+    localStorage.clear('budgetApp')
+    window.location.reload()
+})
